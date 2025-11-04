@@ -1,15 +1,19 @@
-# Stage 1: Build
+# Stage 1: Build the application
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /app
+WORKDIR /src
 
-COPY . .
+# Copy csproj and restore dependencies
+COPY CarCleanz.csproj ./
 RUN dotnet restore
-RUN dotnet publish -c Release -o out
 
-# Stage 2: Run
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+# Copy everything else and build
+COPY . ./
+RUN dotnet publish -c Release -o /app
+
+# Stage 2: Run the app
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
-COPY --from=build /app/out .
+COPY --from=build /app .
 
-EXPOSE 80
+EXPOSE 8080
 ENTRYPOINT ["dotnet", "CarCleanz.dll"]
