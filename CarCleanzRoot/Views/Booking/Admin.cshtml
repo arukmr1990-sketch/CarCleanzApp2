@@ -1,1 +1,30 @@
+@model IEnumerable<CarCleanzApp.Models.Booking>
+
+@{
+    ViewData["Title"] = "Admin - View Bookings";
+}
+
+<h2>Admin Panel - All Bookings</h2>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Car Type</th>
+        <th>Address</th>
+        <th>Date</th>
+    </tr>
+    @foreach (var b in Model)
+    {
+        <tr>
+            <td>@b.Id</td>
+            <td>@b.Name</td>
+            <td>@b.Phone</td>
+            <td>@b.CarType</td>
+            <td>@b.Address</td>
+            <td>@b.Date.ToShortDateString()</td>
+        </tr>
+    }
+</table>
 
