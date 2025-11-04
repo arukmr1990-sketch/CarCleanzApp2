@@ -1,60 +1,36 @@
-using System.Net.Http.Json;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
+using CarCleanzApp.Models;
+using System.Collections.Generic;
 
-namespace CarCleanz.Controllers
+namespace CarCleanzApp.Controllers
 {
     public class BookingController : Controller
     {
-        private readonly IConfiguration _config;
-        private readonly HttpClient _http;
+        private static List<Booking> bookings = new List<Booking>();
 
-        public BookingController(IConfiguration config, HttpClient http)
+        // GET: Booking form
+        public IActionResult Index()
         {
-            _config = config;
-            _http = http;
-            _http.BaseAddress = new Uri(_config["Supabase:Url"]?.TrimEnd('/') + "/rest/v1/");
-            _http.DefaultRequestHeaders.Add("apikey", _config["Supabase:Key"]);
-            _http.DefaultRequestHeaders.Add("Authorization", $"Bearer {_config["Supabase:Key"]}");
+            return View();
         }
 
-        [HttpGet]
-        public IActionResult Index() => View();
-
+        // POST: Save booking
         [HttpPost]
-        public async Task<IActionResult> Submit([FromForm] BookingModel model)
+        public IActionResult Submit(Booking booking)
         {
-            if(!ModelState.IsValid) return View("Index", model);
-
-            var payload = new {
-                name = model.Name,
-                phone = model.Phone,
-                car_type = model.CarType,
-                service_date = model.ServiceDate.ToString("yyyy-MM-dd"),
-                address = model.Address,
-                created_at = DateTime.UtcNow.ToString("o")
-            };
-
-            var response = await _http.PostAsJsonAsync("Bookings", payload);
-            if(response.IsSuccessStatusCode)
-            {
-                TempData["Success"] = "Booking received! We'll contact you soon.";
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                TempData["Error"] = $"Failed to save booking (HTTP {response.StatusCode}).";
-                return View("Index", model);
-            }
+            bookings.Add(booking);
+            return RedirectToAction("Success");
         }
-    }
 
-    public class BookingModel
-    {
-        public string Name { get; set; } = "";
-        public string Phone { get; set; } = "";
-        public string CarType { get; set; } = "";
-        public DateTime ServiceDate { get; set; } = DateTime.UtcNow;
-        public string Address { get; set; } = "";
+        public IActionResult Success()
+        {
+            return View();
+        }
+
+        // Admin View
+        public IActionResult Admin()
+        {
+            return View(bookings);
+        }
     }
 }
