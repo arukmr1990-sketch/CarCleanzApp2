@@ -1,34 +1,27 @@
-@model CarCleanz.Controllers.BookingModel
 @{
-    ViewBag.Title = "Booking";
-}
-<h2>Book a Service</h2>
-
-@if(TempData["Success"] != null){
-    <div class="notice success">@TempData["Success"]</div>
-}
-@if(TempData["Error"] != null){
-    <div class="notice error">@TempData["Error"]</div>
+    ViewData["Title"] = "Book a Car Wash";
 }
 
+<h2>Book Your Car Wash</h2>
 <form method="post" action="/Booking/Submit" class="booking-form">
-    <label>Name<input type="text" name="Name" value="@Model?.Name" required></label>
-    <label>Phone<input type="tel" name="Phone" value="@Model?.Phone" required></label>
-    <label>Car Type
-        <select name="CarType" required>
-            <option value="">Select</option>
-            <option>Hatchback</option>
-            <option>Sedan</option>
-            <option>SUV</option>
-        </select>
-    </label>
-    <label>Service Date<input type="date" name="ServiceDate" value="@Model?.ServiceDate.ToString("yyyy-MM-dd")" required></label>
-    <label>Address<textarea name="Address" required>@Model?.Address</textarea></label>
-    <button class="btn" type="submit">Submit Booking</button>
-</form>
+    <label>Name:</label>
+    <input type="text" name="Name" required />
 
-<section id="payment" class="payment-qr">
-    <h3>Quick Pay (UPI)</h3>
-    <img src="~/images/qr-placeholder.png" alt="Payment QR" />
-    <p>Scan to pay via UPI. Replace the placeholder with your QR image in wwwroot/images.</p>
-</section>
+    <label>Phone:</label>
+    <input type="text" name="Phone" required />
+
+    <label>Car Type:</label>
+    <select name="CarType" required>
+        <option value="Hatchback">Hatchback - ₹499</option>
+        <option value="Sedan">Sedan - ₹650</option>
+        <option value="SUV">SUV - ₹750</option>
+    </select>
+
+    <label>Address:</label>
+    <textarea name="Address" required></textarea>
+
+    <label>Date:</label>
+    <input type="date" name="Date" required />
+
+    <button type="submit">Submit Booking</button>
+</form>
