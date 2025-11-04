@@ -1,4 +1,4 @@
-namespace CarCleanzApp.Models
+namespace CarCleanz.Models
 
 
 {
