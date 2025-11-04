@@ -15,16 +15,17 @@
         <th>Address</th>
         <th>Date</th>
     </tr>
-    @foreach (var b in Model)
-    {
-        <tr>
-            <td>@b.Id</td>
-            <td>@b.Name</td>
-            <td>@b.Phone</td>
-            <td>@b.CarType</td>
-            <td>@b.Address</td>
-            <td>@b.Date.ToShortDateString()</td>
-        </tr>
+    @foreach (var booking in Model)
+{
+    <tr>
+        <td>@booking.Id</td>
+        <td>@booking.CustomerName</td>
+        <td>@booking.Phone</td>
+        <td>@booking.CarType</td>
+        <td>@booking.Address</td>
+        <td>@booking.BookingDate?.ToShortDateString()</td>
+    </tr>
+
     }
 </table>
 
