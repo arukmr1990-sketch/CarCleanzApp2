@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Car Cleanz - @ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/js/site.js" defer></script>
+</head>
+<body class="theme-redblack">
+    <header class="site-header">
+        <div class="logo-wrap">
+            <!-- Animated SVG logo -->
+            <a href="/">
+                <svg id="car-logo" width="120" height="60" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg" aria-label="Car Cleanz Logo">
+                    <defs>
+                        <linearGradient id="g1" x1="0" x2="1">
+                            <stop offset="0%" stop-color="#ff4d4d"/>
+                            <stop offset="100%" stop-color="#b30000"/>
+                        </linearGradient>
+                    </defs>
+                    <path id="car-path" d="M10 60 Q40 20 90 30 Q140 40 180 20 L190 20 L190 60 Z" fill="url(#g1)" opacity="0.95"/>
+                    <circle cx="55" cy="70" r="10" fill="#111"/>
+                    <circle cx="145" cy="70" r="10" fill="#111"/>
+                </svg>
+            </a>
+        </div>
+        <nav class="main-nav">
+            <a href="/">Home</a>
+            <a href="/Booking">Book</a>
+            <a href="/Admin">Admin</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main class="content">
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; @DateTime.Now.Year Car Cleanz — Farmfresh meet carwash? No, but we clean cars 😄</p>
+    </footer>
+</body>
+</html>

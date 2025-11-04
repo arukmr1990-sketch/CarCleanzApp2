@@ -1,0 +1,15 @@
+@{
+    ViewBag.Title = "Admin - Bookings";
+}
+<h2>Admin — Bookings</h2>
+
+@if(ViewBag.Error != null){
+    <div class="notice error">@ViewBag.Error</div>
+}
+
+<div>
+    <p>Raw JSON response from Supabase (you can replace with a proper table later):</p>
+    <pre>@ViewBag.BookingsJson</pre>
+</div>
+
+<p>To protect this page in production, add authentication (not included in this starter).</p>
