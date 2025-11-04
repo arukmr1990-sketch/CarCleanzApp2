@@ -1,14 +1,21 @@
-# Use the official .NET SDK image to build the app
+# Stage 1: Build the app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copy everything and build the project
-COPY . .
-RUN dotnet restore
-RUN dotnet publish -c Release -o /app
+# Copy the csproj and restore dependencies
+COPY CarCleanzApp/*.csproj ./CarCleanzApp/
+RUN dotnet restore ./CarCleenzApp/CarCleanz.csproj
 
-# Use a lightweight runtime image for the final container
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+# Copy the rest of the files
+COPY . .
+
+# Build and publish the app
+RUN dotnet publish ./CarCleanzApp/CarCleanz.csproj -c Release -o /app
+
+# Stage 2: Run the app
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app .
-ENTRYPOINT ["dotnet", "CarCleanzApp.dll"]
+
+EXPOSE 80
+ENTRYPOINT ["dotnet", "CarCleanz.dll"]
