@@ -15,8 +15,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
 
 
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseInMemoryDatabase("CarCleanzDB"));
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
 var app = builder.Build();
