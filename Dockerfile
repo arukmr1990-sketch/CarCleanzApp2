@@ -1,21 +1,14 @@
-# Stage 1: Build the application
+# Use the official .NET SDK image to build the app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /app
+WORKDIR /src
 
-# Copy all project files
-COPY . ./
-
-# Restore dependencies and build the app
+# Copy everything and build the project
+COPY . .
 RUN dotnet restore
-RUN dotnet publish -c Release -o out
+RUN dotnet publish -c Release -o /app
 
-# Stage 2: Run the app
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+# Use a lightweight runtime image for the final container
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
-COPY --from=build /app/out .
-
-# Expose port 8080 (Render expects web services on 8080)
-EXPOSE 8080
-
-# Set the entry point
+COPY --from=build /app .
 ENTRYPOINT ["dotnet", "CarCleanzApp.dll"]
