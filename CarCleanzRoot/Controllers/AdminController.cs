@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using CarCleanzApp.Models; // adjust if your namespace differs
-
+using CarCleanz.Data;
 namespace CarCleanzApp.Controllers
+
+
+
 {
     public class AdminController : Controller
     {
