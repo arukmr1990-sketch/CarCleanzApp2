@@ -1,4 +1,30 @@
-<div style="text-align:right; margin-bottom:10px;">
-    <a href="/Admin/Logout" style="float:right; color:red; text-decoration:none;">Logout</a>
+@model IEnumerable<CarCleanzApp.Models.Booking>
 
-</div>
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h2>Bookings List</h2>
+<a href="/Admin/Logout" style="float:right; color:red;">Logout</a>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Customer Name</th>
+            <th>Phone</th>
+            <th>Car Type</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.CustomerName</td>
+                <td>@booking.Phone</td>
+                <td>@booking.CarType</td>
+                <td>@booking.BookingDate.ToString("dd-MM-yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>
