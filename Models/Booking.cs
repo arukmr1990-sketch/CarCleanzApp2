@@ -9,27 +9,24 @@ namespace CarCleanz.Models
 
         [Required]
         [Display(Name = "Customer Name")]
-        public string CustomerName { get; set; }
+        public string Name { get; set; }
+
+        [Required, EmailAddress]
+        public string Email { get; set; }
 
         [Required]
-        [Display(Name = "Car Type")]
-        public string CarType { get; set; }
-
-        [Required]
-        [Display(Name = "Address")]
-        public string Address { get; set; }
-
-        [Required]
-        [Display(Name = "Phone")]
+        [Display(Name = "Phone Number")]
         public string Phone { get; set; }
 
-        [Required]
-        [DataType(DataType.Date)]
+        [Display(Name = "Vehicle Type")]
+        public string VehicleType { get; set; }  // ? Car, Bike, SUV, etc.
+
+        [Display(Name = "Service Type")]
+        public string Service { get; set; }      // ? Exterior, Interior, Full Cleaning, etc.
+
         [Display(Name = "Booking Date")]
         public DateTime BookingDate { get; set; }
 
-        [Required]
-        [Display(Name = "Service Type")]
-        public string ServiceType { get; set; }
+        public string Status { get; set; } = "Pending";  // Optional
     }
 }
