@@ -5,10 +5,10 @@ WORKDIR /src
 # Copy project file and restore
 COPY CarCleanz.csproj ./
 RUN dotnet restore
-
 # Copy everything and build
 COPY . .
-RUN dotnet publish -c Release -o /app
+RUN dotnet publish "CarCleanz.csproj" -c Release -o /app
+ 
 
 # Stage 2: Run the app
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
