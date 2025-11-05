@@ -12,8 +12,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // ? Configure SQLite database connection
+var connectionString = builder.Configuration["ConnectionStrings:DefaultConnection"];
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlite(connectionString));
 
 // ? Enable session (for Admin login)
 builder.Services.AddSession(options =>
