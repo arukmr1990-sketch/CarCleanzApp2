@@ -1,0 +1,51 @@
+@model CarCleanz.Models.Booking
+
+<h2>Book Your Car Cleaning Service</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label>Name:</label><br />
+        <input asp-for="Name" class="form-control" required />
+    </div>
+
+    <div>
+        <label>Email:</label><br />
+        <input asp-for="Email" type="email" class="form-control" required />
+    </div>
+
+    <div>
+        <label>Phone:</label><br />
+        <input asp-for="Phone" class="form-control" required />
+    </div>
+
+    <div>
+        <label>Vehicle Type:</label><br />
+        <select asp-for="VehicleType" class="form-control" required>
+            <option value="">-- Select Vehicle Type --</option>
+            <option>Car</option>
+            <option>Bike</option>
+            <option>SUV</option>
+            <option>Van</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Service Type:</label><br />
+        <select asp-for="Service" class="form-control" required>
+            <option value="">-- Select Service Type --</option>
+            <option>Exterior Wash</option>
+            <option>Interior Cleaning</option>
+            <option>Full Detailing</option>
+            <option>Premium Wash</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Booking Date:</label><br />
+        <input asp-for="BookingDate" type="date" class="form-control" required />
+    </div>
+
+    <div style="margin-top:10px;">
+        <button type="submit" class="btn btn-primary">Submit Booking</button>
+    </div>
+</form>
