@@ -1,9 +1,0 @@
-C:\Users\Administrator\Projects\CarCleanzApp\obj\Debug\net6.0\CarCleanz.csproj.csproj.AssemblyReference.cache
-C:\Users\Administrator\Projects\CarCleanzApp\obj\Debug\net6.0\CarCleanz.csproj.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Administrator\Projects\CarCleanzApp\obj\Debug\net6.0\CarCleanz.csproj.AssemblyInfoInputs.cache
-C:\Users\Administrator\Projects\CarCleanzApp\obj\Debug\net6.0\CarCleanz.csproj.AssemblyInfo.cs
-C:\Users\Administrator\Projects\CarCleanzApp\obj\Debug\net6.0\CarCleanz.csproj.csproj.CoreCompileInputs.cache
-C:\Users\Administrator\Projects\CarCleanzApp\obj\Debug\net6.0\CarCleanz.csproj.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Administrator\Projects\CarCleanzApp\obj\Debug\net6.0\CarCleanz.csproj.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Administrator\Projects\CarCleanzApp\obj\Debug\net6.0\CarCleanz.csproj.RazorAssemblyInfo.cache
-C:\Users\Administrator\Projects\CarCleanzApp\obj\Debug\net6.0\CarCleanz.csproj.RazorAssemblyInfo.cs
