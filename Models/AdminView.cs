@@ -1,11 +1,18 @@
+using System.ComponentModel.DataAnnotations;
 
 namespace CarCleanz.Models
 {
     public class AdminView
     {
+        [Key]
         public int Id { get; set; }
-        public string UserName { get; set; }
-        public string Email { get; set; }
-        public string Role { get; set; }
+
+        [Required]
+        [Display(Name = "Username")]
+        public string Username { get; set; }
+
+        [Required]
+        [Display(Name = "Password")]
+        public string Password { get; set; }
     }
 }

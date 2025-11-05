@@ -1,7 +1,5 @@
-using CarCleanz.Models;
-
 using Microsoft.EntityFrameworkCore;
-
+using CarCleanz.Models;
 
 namespace CarCleanz.Data
 {
@@ -16,4 +14,3 @@ namespace CarCleanz.Data
         public DbSet<AdminView> AdminViews { get; set; }
     }
 }
-
