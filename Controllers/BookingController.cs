@@ -29,16 +29,29 @@ namespace CarCleanz.Controllers
 
             _context.Bookings.Add(booking);
             await _context.SaveChangesAsync();
+// Pass the booking object temporarily to the next request
+    TempData["Name"] = booking.Name;
+    TempData["Email"] = booking.Email;
+    TempData["Phone"] = booking.Phone;
+    TempData["VehicleType"] = booking.VehicleType;
+    TempData["ServiceType"] = booking.Service;
+    TempData["BookingDate"] = booking.BookingDate?.ToString("dd MMM yyyy");
 
-            // Use nameof so refactors keep this correct
+            //  Post-Redirect-Get pattern
             return RedirectToAction(nameof(Success));
         }
 
-        // Note PascalCase name
         [HttpGet]
         public IActionResult Success()
         {
-            return View(); // looks for Views/Booking/Success.cshtml
+ // Load TempData into ViewBag for display
+    ViewBag.Name = TempData["Name"];
+    ViewBag.Email = TempData["Email"];
+    ViewBag.Phone = TempData["Phone"];
+    ViewBag.VehicleType = TempData["VehicleType"];
+    ViewBag.ServiceType = TempData["ServiceType"];
+    ViewBag.BookingDate = TempData["BookingDate"];
+            return View();
         }
     }
 }
