@@ -1,4 +1,3 @@
-@model CarCleanz.Models.Booking
 @{
     ViewData["Title"] = "Booking Success";
 }
@@ -11,20 +10,20 @@
             </div>
             <h2 class="text-success fw-bold mb-3">Booking Successful!</h2>
             <p class="text-muted mb-4">
-                Thank you for booking with <strong>Car Cleanz</strong> 🚗💦<br />
+                Thank you for booking with <strong>Car Cleanz ????</strong><br />
                 Your appointment has been confirmed successfully.
             </p>
 
             <div class="text-start bg-light p-3 rounded-4 border mb-4">
-    <h5 class="text-dark mb-3">?? Booking Details</h5>
-    <p><strong>Booking ID:</strong> @ViewBag.BookingId</p>
-    <p><strong>Name:</strong> @ViewBag.Name</p>
-    <p><strong>Email:</strong> @ViewBag.Email</p>  <!-- ? Added this line -->
-    <p><strong>Vehicle Type:</strong> @ViewBag.VehicleType</p>
-    <p><strong>Service Package:</strong> @ViewBag.ServiceType</p>
-    <p><strong>Date:</strong> @ViewBag.BookingDate</p>
-    <p><strong>Contact:</strong> @ViewBag.Phone</p>
-</div>
+                <h5 class="text-dark mb-3">?? Booking Details</h5>
+                <p><strong>Name:</strong> @ViewBag.Name</p>
+                <p><strong>Email:</strong> @ViewBag.Email</p>
+                <p><strong>Vehicle Type:</strong> @ViewBag.VehicleType</p>
+                <p><strong>Service Package:</strong> @ViewBag.ServiceType</p>
+                <p><strong>Date:</strong> @ViewBag.BookingDate</p>
+                <p><strong>Contact:</strong> @ViewBag.Phone</p>
+            </div>
+
             <a href="@Url.Action("Index", "Home")" class="btn btn-dark px-4 rounded-pill me-2">
                 <i class="bi bi-house-door"></i> Back to Home
             </a>
@@ -35,25 +34,3 @@
         </div>
     </div>
 </div>
-
-<style>
-    body {
-        background-color: #f5f5f5;
-    }
-
-    .card {
-        background: #fff;
-    }
-
-    h2 {
-        color: #28a745;
-    }
-
-    a.btn {
-        transition: all 0.3s ease;
-    }
-
-    a.btn:hover {
-        transform: scale(1.05);
-    }
-</style>
