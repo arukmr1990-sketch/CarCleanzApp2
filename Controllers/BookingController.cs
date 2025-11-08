@@ -15,11 +15,10 @@ namespace CarCleanz.Controllers
         }
 
         [HttpGet]
-        public IActionResult Create()
-        {
-            return View();
-        }
-
+        public IActionResult Index()
+{
+    return View("Create");
+}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Booking booking)
