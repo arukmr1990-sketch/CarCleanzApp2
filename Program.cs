@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add configuration-based connection string (fallback to local file)
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
-    ?? "Data Source=carcleanz.db";
+    ?? "Data Source=/tmp/carcleanz.db";
 
 // Register EF Core with SQLite
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
