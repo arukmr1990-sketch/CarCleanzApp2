@@ -1,55 +1,40 @@
 using Microsoft.AspNetCore.Mvc;
-using CarCleanz.Models;
-using CarCleanz.Data;
-using System.Threading.Tasks;
+using CarCleanzApp.Models;
 
-namespace CarCleanz.Controllers
+namespace CarCleanzApp.Controllers
 {
     public class BookingController : Controller
     {
-        private readonly ApplicationDbContext _context;
-
-        public BookingController(ApplicationDbContext context)
+        // Default page — loads the booking form
+        public IActionResult Index()
         {
-            _context = context;
+            return View("Create");
         }
 
+        // Shows the booking form
         [HttpGet]
-        public IActionResult Index()
-{
-    return View("Create");
-}
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // Handles form submission
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Booking booking)
+        public IActionResult Create(Booking model)
         {
-            if (!ModelState.IsValid)
-                return View(booking);
+            if (ModelState.IsValid)
+            {
+                // Save booking to database (or file)
+                // ... your logic here
 
-            _context.Bookings.Add(booking);
-            await _context.SaveChangesAsync();
-// Pass the booking object temporarily to the next request
-    TempData["Name"] = booking.Name;
-    TempData["Email"] = booking.Email;
-    TempData["Phone"] = booking.Phone;
-    TempData["VehicleType"] = booking.VehicleType;
-    TempData["ServiceType"] = booking.Service;
-    TempData["BookingDate"] = booking.BookingDate.ToString("dd MMM yyyy");
-
-            //  Post-Redirect-Get pattern
-            return RedirectToAction(nameof(Success));
+                return RedirectToAction("Success");
+            }
+            return View(model);
         }
 
-        [HttpGet]
         public IActionResult Success()
         {
- // Load TempData into ViewBag for display
-    ViewBag.Name = TempData["Name"];
-    ViewBag.Email = TempData["Email"];
-    ViewBag.Phone = TempData["Phone"];
-    ViewBag.VehicleType = TempData["VehicleType"];
-    ViewBag.ServiceType = TempData["ServiceType"];
-    ViewBag.BookingDate = TempData["BookingDate"];
             return View();
         }
     }
