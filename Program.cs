@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using CarCleanz.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? "Data Source=carcleanz.db";
 
 // ? Configure EF Core with SQLite
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

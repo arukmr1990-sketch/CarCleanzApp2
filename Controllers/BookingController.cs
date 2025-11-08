@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using CarCleanz.Models;
+using CarCleanz.Data;
 using System.Collections.Generic;
+using System.Linq;
 namespace CarCleanzApp.Controllers
 {
     public class BookingController : Controller
@@ -41,15 +43,11 @@ namespace CarCleanzApp.Controllers
         }
 public IActionResult Admin()
 {
-    // ? Create an empty list (for now, until database connection is added)
-    List<Booking> bookings = new List<Booking>();
-
-    // Later, when you connect EF Core or SQLite, replace the above with:
-    // var bookings = _context.Bookings.ToList();
+    // ? Fetch all bookings from SQLite
+    var bookings = _context.Bookings.ToList();
 
     return View(bookings);
-}
-        public IActionResult Success()
+}        public IActionResult Success()
         {
             return View();
         }
