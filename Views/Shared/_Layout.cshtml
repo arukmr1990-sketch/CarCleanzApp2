@@ -11,23 +11,21 @@
     <script src="~/js/site.js" defer></script>
 </head>
 <body class="theme-redblack">
-  <header class="site-header">
-    <div class="header-container">
-        <!-- Left: Red Car Logo -->
-        <div class="logo-area">
-            <a href="/">
-                <img src="~/images/logo.png" alt="Car Cleanz Logo" class="nav-logo" />
-            </a>
-        </div>
-
-        <!-- Right: Navigation Menu -->
-        <nav class="main-nav">
-            <a href="/">Home</a>
-            <a href="/Booking">Book</a>
-            <a href="/Booking/Admin">Admin</a>
-            <a href="#contact">Contact</a>
-        </nav>
+  <header class="site-header d-flex justify-content-between align-items-center px-4 py-2">
+    <div class="logo-wrap">
+        <a href="/" class="logo-link">
+            <img src="~/images/logo.png" alt="Car Cleanz Logo" class="logo-img" />
+        </a>
     </div>
+
+    <nav class="main-nav">
+        <ul class="nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/Booking">Book</a></li>
+            <li><a href="/Booking/Admin">Admin</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 </header>
 
     <main class="content">
