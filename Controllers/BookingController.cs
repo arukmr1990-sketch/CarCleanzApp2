@@ -41,4 +41,14 @@ namespace CarCleanz.Controllers
             return View();
         }
     }
+// ? GET: /Booking/Admin
+[HttpGet]
+public IActionResult Admin()
+{
+    // Fetch all bookings from DB
+    var bookings = _context.Bookings.ToList();
+
+    // Return the Admin view (Views/Booking/Admin.cshtml)
+    return View(bookings);
+}
 }
