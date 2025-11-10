@@ -46,18 +46,22 @@ namespace CarCleanz.Controllers
         }
 
         // ? GET: /Booking/Success?id=#
-        [HttpGet]
-        public IActionResult Success(int id)
-        {
-            var booking = _context.Bookings.FirstOrDefault(b => b.Id == id);
+       [HttpGet]
+public IActionResult Success(int id)
+{
+    Console.WriteLine($"[DEBUG] Success() called with ID: {id}");
 
-            if (booking == null)
-            {
-                return RedirectToAction("Create");
-            }
+    var booking = _context.Bookings.FirstOrDefault(b => b.Id == id);
 
-            return View(booking);
-        }
+    if (booking == null)
+    {
+        Console.WriteLine("[DEBUG] No booking found for this ID.");
+        return RedirectToAction("Create");
+    }
+
+    Console.WriteLine($"[DEBUG] Booking found: {booking.Name}, {booking.Email}, {booking.VehicleType}");
+    return View(booking);
+}
 
         // ? GET: /Booking/Admin
         [HttpGet]
