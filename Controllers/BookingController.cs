@@ -21,52 +21,55 @@ namespace CarCleanz.Controllers
         {
             return View();
         }
-[HttpGet]
-public IActionResult Index()
-{
-    // Redirect /Booking to /Booking/Create
-    return RedirectToAction("Create");
-}
+
+        // ? GET: /Booking (redirects to /Booking/Create)
+        [HttpGet]
+        public IActionResult Index()
+        {
+            return RedirectToAction("Create");
+        }
 
         // ? POST: /Booking/Create
         [HttpPost]
-[ValidateAntiForgeryToken]
-public IActionResult Create(Booking booking)
-{
-    if (ModelState.IsValid)
-    {
-        _context.Bookings.Add(booking);
-        _context.SaveChanges();
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Booking booking)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Bookings.Add(booking);
+                _context.SaveChanges();
 
-        // ? Pass the booking ID to Success page
-        return RedirectToAction("Success", new { id = booking.Id });
+                // ? Redirect to Success page with booking ID
+                return RedirectToAction("Success", new { id = booking.Id });
+            }
+            return View(booking);
+        }
+
+        // ? GET: /Booking/Success?id=#
+        [HttpGet]
+        public IActionResult Success(int id)
+        {
+            var booking = _context.Bookings.FirstOrDefault(b => b.Id == id);
+
+            if (booking == null)
+            {
+                return RedirectToAction("Create");
+            }
+
+            return View(booking);
+        }
+
+        // ? GET: /Booking/Admin
+        [HttpGet]
+        public IActionResult Admin()
+        {
+            if (HttpContext.Session.GetString("IsAdmin") != "true")
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+
+            var bookings = _context.Bookings.ToList();
+            return View(bookings);
+        }
     }
-    return View(booking);
-}
-
-       public IActionResult Success(int id)
-{
-    var booking = _context.Bookings.FirstOrDefault(b => b.Id == id);
-    if (booking == null)
-    {
-        return RedirectToAction("Create");
-    }
-
-    return View(booking);
-}
-[HttpGet]
-public IActionResult Admin()
-{
-    if (HttpContext.Session.GetString("IsAdmin") != "true")
-    {
-        return RedirectToAction("Login", "Admin");
-    }
-
-    var bookings = _context.Bookings.ToList();
-    return View(bookings);
-}
-
-    }
-// ? GET: /Booking/Admin
-
 }
