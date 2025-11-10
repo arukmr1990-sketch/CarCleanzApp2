@@ -42,6 +42,11 @@ namespace CarCleanzApp.Controllers
         HttpContext.Session.Remove("AdminLoggedIn");
         return RedirectToAction("Login");
     }
+[HttpGet]
+public IActionResult Create()
+{
+    return View();
+}
 public IActionResult Index()
 {
     return RedirectToAction("Create");
