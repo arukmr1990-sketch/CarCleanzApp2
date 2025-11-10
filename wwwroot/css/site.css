@@ -38,17 +38,42 @@ body.theme-redblack {
     margin-top: -4px;
     transition: transform 0.3s ease;
 }
-.carcleanz-logo {
-    height: 50px;
-    margin: 8px 0; /* reduces top and bottom spacing */
-    transition: transform 0.4s ease, opacity 0.8s ease;
-    opacity: 0;
+.logo-combo {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* small space between SVG and logo text */
     animation: fadeInLogo 1.2s ease forwards;
+    opacity: 0;
+}
+
+#car-path-svg {
+    height: 45px;
+    width: auto;
+    transform: translateY(3px);
+    animation: slideIn 1.2s ease forwards;
+}
+
+.carcleanz-logo {
+    height: 40px;
+    width: auto;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.2));
+    transition: transform 0.4s ease, opacity 0.8s ease;
 }
 
 .carcleanz-logo:hover {
     transform: scale(1.05);
 }
+
+@keyframes fadeInLogo {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
 
 @keyframes fadeInLogo {
     from {
