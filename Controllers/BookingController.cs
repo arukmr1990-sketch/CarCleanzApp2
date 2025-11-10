@@ -47,6 +47,7 @@ namespace CarCleanz.Controllers
 
         // ? GET: /Booking/Success?id=#
        [HttpGet]
+[Route("Booking/Success/{id}")]
 public IActionResult Success(int id)
 {
     Console.WriteLine($"[DEBUG] Success() called with ID: {id}");
@@ -55,7 +56,7 @@ public IActionResult Success(int id)
 
     if (booking == null)
     {
-        Console.WriteLine("[DEBUG] No booking found for this ID.");
+        Console.WriteLine($"[DEBUG] No booking found for ID: {id}");
         return RedirectToAction("Create");
     }
 
