@@ -38,80 +38,55 @@ body.theme-redblack {
     margin-top: -4px;
     transition: transform 0.3s ease;
 }
-.logo-combo {
-    display: flex;
-    align-items: center;
-    gap: 6px; /* small space between SVG and logo text */
-    animation: fadeInLogo 1.2s ease forwards;
-    opacity: 0;
-}
-
-#car-path-svg {
-    height: 45px;
-    width: auto;
-    transform: translateY(3px);
-    animation: slideIn 1.2s ease forwards;
-}
-
-.carcleanz-logo {
-    height: 40px;
-    width: auto;
-    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.2));
-    transition: transform 0.4s ease, opacity 0.8s ease;
-}
-
-.carcleanz-logo:hover {
-    transform: scale(1.05);
-}
-
-@keyframes fadeInLogo {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
-}
 
 @keyframes slideIn {
     from { opacity: 0; transform: translateX(-10px); }
     to { opacity: 1; transform: translateX(0); }
 }
 /* --- Logo Section --- */
+/* --- Logo Section --- */
 .logo-banner {
     background-color: #000;
-    padding: 12px 0 5px; /* creates space above and below */
+    padding: 20px 0 10px; /* Increased top & bottom space */
     text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .logo-combo {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 10px;
     animation: fadeInLogo 1.2s ease forwards;
     opacity: 0;
 }
 
+/* Red SVG styling */
 #car-path-svg {
-    height: 45px;
-    transform: translateY(2px);
+    height: 70px; /* Bigger and more visible */
+    width: auto;
+    transform: translateY(4px);
 }
 
+/* Car Cleanz white logo text */
 .carcleanz-logo {
-    height: 40px;
+    height: 60px; /* Increased from 40px */
     width: auto;
-    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.3));
-    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .carcleanz-logo:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
 }
 
-/* --- Navbar Section --- */
+/* Navbar */
 .main-nav {
     background-color: #000;
     display: flex;
     justify-content: center;
-    gap: 25px;
-    padding: 10px 0;
+    gap: 30px;
+    padding: 12px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -119,22 +94,31 @@ body.theme-redblack {
     color: #fff;
     font-weight: 600;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 .main-nav a:hover {
     color: #ff4d4d;
 }
 
-/* --- Animation --- */
+/* Smooth fade-in animation */
 @keyframes fadeInLogo {
-    from { opacity: 0; transform: translateY(-5px); }
+    from { opacity: 0; transform: translateY(-8px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 
 
-}
+
+
+
+
+
+
+
+
+
+
 
 
 .logo-wrap img:hover {
