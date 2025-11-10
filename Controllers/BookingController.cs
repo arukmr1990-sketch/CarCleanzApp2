@@ -8,6 +8,15 @@ namespace CarCleanz.Controllers
 {
     public class BookingController : Controller
     {
+// GET: /Booking/Debug/1  (returns JSON of the booking)
+[HttpGet]
+[Route("Booking/Debug/{id}")]
+public IActionResult DebugBooking(int id)
+{
+    var booking = _context.Bookings.FirstOrDefault(b => b.Id == id);
+    if (booking == null) return NotFound();
+    return Json(booking);
+}
         private readonly ApplicationDbContext _context;
 
         public BookingController(ApplicationDbContext context)
