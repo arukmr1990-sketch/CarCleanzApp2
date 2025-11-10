@@ -6,21 +6,20 @@
     <p>Your appointment has been confirmed successfully.</p>
 
     <div class="mt-4 text-left mx-auto" 
-         style="max-width: 420px; background: #ffffff; border-radius: 12px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
-        <h4 style="color:#333;">Booking Details</h4>
+         style="max-width: 400px; background: #fff; border-radius: 12px; padding: 20px; color: #000;">
+        <h4>Booking Details</h4>
         <hr />
-<pre style="color:lime; background:black; padding:10px; border-radius:5px;">
-@System.Text.Json.JsonSerializer.Serialize(Model)
-</pre>        <p><strong>Name:</strong> @Model.Name</p>
+        <p><strong>Name:</strong> @Model.Name</p>
         <p><strong>Email:</strong> @Model.Email</p>
         <p><strong>Phone:</strong> @Model.Phone</p>
         <p><strong>Vehicle Type:</strong> @Model.VehicleType</p>
         <p><strong>Service Package:</strong> @Model.ServicePackage</p>
-        <p><strong>Booking Date:</strong> @(DateTime.TryParse(Model.BookingDate, out var d) ? d.ToString("dd-MM-yyyy") : Model.BookingDate)</p>
+        <p><strong>Booking Date:</strong> 
+            @(DateTime.TryParse(Model.BookingDate.ToString(), out var d) ? d.ToString("dd-MM-yyyy") : Model.BookingDate.ToString())
+        </p>
     </div>
 
     <div class="mt-4">
-        <a href="/" class="btn btn-primary" 
-           style="background:#007bff; border:none; border-radius:6px; padding:8px 20px;">Back to Home</a>
+        <a href="/" class="btn btn-primary">Back to Home</a>
     </div>
 </div>
