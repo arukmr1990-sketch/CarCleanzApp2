@@ -59,9 +59,11 @@ namespace CarCleanz.Controllers
         }
 
         // Booking Successful Page
-        public IActionResult Success()
-        {
-            return View();
-        }
+        public IActionResult Success(string name)
+{
+    // Ensure the name is passed correctly
+    ViewBag.Name = name ?? "Customer";
+    return View();
+}
     }
 }
