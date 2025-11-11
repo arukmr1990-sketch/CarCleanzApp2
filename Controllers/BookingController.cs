@@ -41,22 +41,16 @@ namespace CarCleanz.Controllers
         }
 
         // Payment Page
-        public IActionResult Payment(string name, string email, string phone, string vehicleType, string servicePackage)
-        {
-            ViewBag.Name = name;
-            ViewBag.Email = email;
-            ViewBag.Phone = phone;
-            ViewBag.VehicleType = vehicleType;
-            ViewBag.ServicePackage = servicePackage;
+       public IActionResult Payment(string name, string email, string phone, string vehicleType, string servicePackage)
+{
+    ViewBag.Name = name;
+    ViewBag.Email = email;
+    ViewBag.Phone = phone;
+    ViewBag.VehicleType = vehicleType;
+    ViewBag.ServicePackage = servicePackage;
 
-            // Your actual UPI ID
-            ViewBag.UPIID = "carcleanz@upi";
-
-            // Your QR image stored in wwwroot/images
-            ViewBag.QRImage = Url.Content("~/images/paymentQR.png");
-
-            return View();
-        }
+    return View();
+}   // ? this closing brace was missing
 
         // Booking Successful Page
        public IActionResult Success(string name, string vehicleType, string servicePackage)
@@ -64,9 +58,9 @@ namespace CarCleanz.Controllers
     ViewBag.Name = name;
     ViewBag.VehicleType = vehicleType;
     ViewBag.ServicePackage = servicePackage;
+
     return View();
 }
-
     // Pass booking data to the view
     return View(booking);
 }
