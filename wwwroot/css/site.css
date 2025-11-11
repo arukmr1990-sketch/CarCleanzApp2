@@ -37,212 +37,66 @@ body.theme-redblack {
 
 
 
-/* Logo */
+/* === HEADER & NAVBAR FIX === */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 28px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.65));
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Logo area */
+.logo-wrap a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
 .logo-wrap img.logo-img {
-    height: 80px;
-    width: auto;
-    transition: transform 0.3s ease;
+  height: 70px;
+  width: auto;
+  transition: transform 0.3s ease;
 }
+
 .logo-wrap img.logo-img:hover {
-    transform: scale(1.05);
-
-@keyframes slideIn {
-    from { opacity: 0; transform: translateX(-10px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-/* --- Logo Section --- */
-/* --- Logo Section --- */
-.logo-banner {
-    background-color: #000;
-    padding: 20px 0 10px; /* Increased top & bottom space */
-    text-align: center;
+  transform: scale(1.05);
 }
 
-.logo-combo {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    animation: fadeInLogo 1.2s ease forwards;
-    opacity: 0;
-}
-
-
-/* Logo styling */
-.nav-logo {
-    height: 55px;
-    width: auto;
-    filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.4));
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.nav-logo:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.6));
-}
-
-/* Navigation Menu */
-.main-nav {
-    display: flex;
-    gap: 30px;
-}
-
-.main-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
-}
-
-.main-nav a:hover {
-    color: #ff4d4d;
-}
-
-}
-
-/* Car Cleanz white logo text */
-.carcleanz-logo {
-    height: 60px; /* Increased from 40px */
-    width: auto;
-    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.carcleanz-logo:hover {
-    transform: scale(1.08);
-    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
-}
-
-/* Hero section styling */
-.hero-section {
-    padding: 60px 0 40px;
-    color: #fff;
-    text-align: center;
-    position: relative;
-}
-
-.hero-logo {
-    margin-top: 25px;
-}
-.logo-wrap img.logo-img:hover {
-    transform: scale(1.05);
-}
-
-.hero-carcleanz-logo {
-    height: 120px; /* Adjust to your preference */
-    width: auto;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
-    transition: transform 0.4s ease, filter 0.4s ease;
-}
-
-.hero-carcleanz-logo:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
-}
-
-/* Hide old SVG completely if still loaded anywhere */
-#car-path-svg {
-    display: none !important;
-
-}
-/* Responsive Fix */
-@media (max-width: 768px) {
-    .main-nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-.content {
-    padding: 40px;
-    background-color: #111;
-    color: white;
-    min-height: 80vh;
-}
-/* === NAVBAR STYLES === */
-header {
-    background-color: rgba(0, 0, 0, 0.9);
-    padding: 15px 50px;
-}
-
-header .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header img {
-    height: 60px;
-    width: auto;
-}
-
-header nav ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 30px;
-}
-
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-header nav ul li a:hover {
-    color: #ff4d4d; /* hover effect red */
-}
-
-
-/* Navbar */
+/* Navbar horizontal layout */
 .main-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 35px;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
 }
 
 .main-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 18px;
-    transition: color 0.3s;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  transition: color 0.3s;
 }
 
 .main-nav ul li a:hover {
-    color: #ff4d4d;
+  color: #ff4d4d;
 }
 
-/* Navbar */
-.main-nav {
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 12px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.main-nav a {
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.main-nav a:hover {
-    color: #ff4d4d;
-}
-
-/* Smooth fade-in animation */
-@keyframes fadeInLogo {
-    from { opacity: 0; transform: translateY(-8px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Responsive: stack vertically on mobile */
+@media (max-width: 768px) {
+  .main-nav ul {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
 }
 
 
@@ -266,10 +120,6 @@ header nav ul li a:hover {
 
 
 
-
-.logo-wrap img:hover {
-    transform: scale(1.05);
-}
 
 .booking-form label { display:flex; flex-direction:column; font-weight:600; }
 input, select, textarea { padding:8px; border-radius:6px; border:1px solid #222; background:#0f0f0f; color:#fff; }
