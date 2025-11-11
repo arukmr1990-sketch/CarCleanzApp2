@@ -1,29 +1,31 @@
 @model IEnumerable<CarCleanz.Models.Booking>
 
-<h2>Booking Details</h2>
+<section class="admin-section">
+    <h2>?? Booking Details</h2>
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Customer Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Vehicle Type</th>
-            <th>Service Type</th>
-            <th>Booking Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var booking in Model)
-        {
+    <table class="table table-bordered table-striped">
+        <thead>
             <tr>
-                <td>@booking.Name</td>
-                <td>@booking.Email</td>
-                <td>@booking.Phone</td>
-                <td>@booking.VehicleType</td>
-                <td>@booking.ServicePackage</td>
-                <td>@booking.BookingDate</td>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Vehicle Type</th>
+                <th>Service Package</th>
+                <th>Booking Date</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model)
+            {
+                <tr>
+                    <td>@booking.Name</td>
+                    <td>@booking.Email</td>
+                    <td>@booking.Phone</td>
+                    <td>@booking.VehicleType</td>
+                    <td>@booking.ServicePackage</td>
+                    <td>@booking.BookingDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
