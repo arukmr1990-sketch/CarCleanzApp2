@@ -1,25 +1,9 @@
-@model CarCleanz.Models.Booking
+@{
+    ViewBag.Title = "Booking Success";
+}
 
-<div class="text-center mt-5">
-    <h2 style="color: #28a745;">Booking Successful!</h2>
+<section class="success-section">
+    <h2>? Booking Successful!</h2>
     <p>Thank you for booking with <strong>Car Cleanz</strong>.</p>
-    <p>Your appointment has been confirmed successfully.</p>
-
-    <div class="mt-4 text-left mx-auto" 
-         style="max-width: 400px; background: #fff; border-radius: 12px; padding: 20px; color: #000;">
-        <h4>Booking Details</h4>
-        <hr />
-        <p><strong>Name:</strong> @Model.Name</p>
-        <p><strong>Email:</strong> @Model.Email</p>
-        <p><strong>Phone:</strong> @Model.Phone</p>
-        <p><strong>Vehicle Type:</strong> @Model.VehicleType</p>
-        <p><strong>Service Package:</strong> @Model.ServicePackage</p>
-        <p><strong>Booking Date:</strong> 
-            @(DateTime.TryParse(Model.BookingDate.ToString(), out var d) ? d.ToString("dd-MM-yyyy") : Model.BookingDate.ToString())
-        </p>
-    </div>
-
-    <div class="mt-4">
-        <a href="/" class="btn btn-primary">Back to Home</a>
-    </div>
-</div>
+    <a href="/" class="btn-home">Go to Home</a>
+</section>
