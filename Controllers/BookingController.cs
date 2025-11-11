@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using CarCleanz.Data;
 using CarCleanz.Models;
+using System.Linq;
 
 namespace CarCleanz.Controllers
 {
@@ -13,56 +14,66 @@ namespace CarCleanz.Controllers
             _context = context;
         }
 
+        // GET: Booking/Create
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
+        // POST: Booking/Create
         [HttpPost]
         public IActionResult Create(Booking booking)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _context.Bookings.Add(booking);
-                _context.SaveChanges();
-
-                // Redirect to Payment Page after successful booking
-                return RedirectToAction("Payment", new
-                {
-                    name = booking.Name,
-                    email = booking.Email,
-                    phone = booking.Phone,
-                    vehicleType = booking.VehicleType,
-                    servicePackage = booking.ServicePackage
-                });
+                return View(booking);
             }
+
+            // Set price automatically based on vehicle type
+            switch ((booking.VehicleType ?? "").ToLowerInvariant())
+            {
+                case "hatchback":
+                    booking.Price = 499;
+                    break;
+                case "sedan":
+                    booking.Price = 650;
+                    break;
+                case "suv":
+                    booking.Price = 750;
+                    break;
+                default:
+                    booking.Price = 0;
+                    break;
+            }
+
+            // Save to DB permanently
+            _context.Bookings.Add(booking);
+            _context.SaveChanges();
+
+            // Redirect to Payment page by id (safer than ViewBag)
+            return RedirectToAction("Payment", new { id = booking.Id });
+        }
+
+        // GET: Booking/Payment?id=5
+        public IActionResult Payment(int id)
+        {
+            var booking = _context.Bookings.FirstOrDefault(b => b.Id == id);
+            if (booking == null)
+                return NotFound();
+
+            // Show the payment page with model
             return View(booking);
         }
 
-        // Payment Page
-       public IActionResult Payment(string name, string email, string phone, string vehicleType, string servicePackage)
-{
-    ViewBag.Name = name;
-    ViewBag.Email = email;
-    ViewBag.Phone = phone;
-    ViewBag.VehicleType = vehicleType;
-    ViewBag.ServicePackage = servicePackage;
+        // GET: Booking/Success?id=5
+        public IActionResult Success(int id)
+        {
+            var booking = _context.Bookings.FirstOrDefault(b => b.Id == id);
+            if (booking == null)
+                return NotFound();
 
-    return View();
-}   // ? this closing brace was missing
-
-        // Booking Successful Page
-       public IActionResult Success(string name, string vehicleType, string servicePackage)
-{
-    ViewBag.Name = name;
-    ViewBag.VehicleType = vehicleType;
-    ViewBag.ServicePackage = servicePackage;
-
-    return View();
-}
-    // Pass booking data to the view
-    return View(booking);
-}
+            return View(booking);
+        }
     }
 }
