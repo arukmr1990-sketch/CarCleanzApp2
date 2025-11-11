@@ -31,6 +31,17 @@ namespace CarCleanz.Controllers
             ViewBag.Error = "Invalid username or password.";
             return View();
         }
+public IActionResult Index()
+{
+    // Check if admin is logged in
+    if (HttpContext.Session.GetString("IsAdmin") != "true")
+    {
+        return RedirectToAction("Login");
+    }
+
+    // You can later show admin dashboard or summary data here
+    return View();
+}
 
         public IActionResult Logout()
         {
