@@ -14,18 +14,19 @@ namespace CarCleanz.Models
         public string Phone { get; set; }
 
         [Required]
-        public string Address { get; set; }   // ? Replaces Email
+        public string Address { get; set; }
 
         [Required]
-        public string VehicleType { get; set; }  // Hatchback / Sedan / SUV
+        public string VehicleType { get; set; }
 
         [Required]
-        public string HouseType { get; set; }    // Individual / Villa / Apartment
+        public string HouseType { get; set; }
 
         [Required]
-        public string CarNumber { get; set; }    // ? New field
+        public string CarNumber { get; set; }
 
-        public int Price { get; set; }           // Auto-calculated
+        public int Price { get; set; }
+
         public DateTime BookingDate { get; set; } = DateTime.Now;
     }
 }

@@ -22,15 +22,12 @@ namespace CarCleanz.Controllers
         }
 
         // POST: Booking/Create
-        [HttpPost]
+[HttpPost]
 public IActionResult Create(Booking booking)
 {
     if (!ModelState.IsValid)
-    {
         return View(booking);
-    }
 
-    // Auto-set price based on vehicle type
     switch ((booking.VehicleType ?? "").ToLower())
     {
         case "hatchback":
@@ -51,7 +48,8 @@ public IActionResult Create(Booking booking)
     _context.SaveChanges();
 
     return RedirectToAction("Payment", new { id = booking.Id });
-}
+}        
+
         // GET: Booking/Payment?id=5
         public IActionResult Payment(int id)
         {
