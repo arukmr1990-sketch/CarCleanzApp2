@@ -307,6 +307,11 @@ body.theme-redblack {
 .btn-home:hover {
     background-color: #b30000;
 }
+footer a:hover {
+    color: #ff4c4c !important;
+    text-decoration: underline;
+    transition: 0.3s;
+}
 
 
 
