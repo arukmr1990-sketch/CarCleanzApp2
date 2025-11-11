@@ -59,11 +59,18 @@ namespace CarCleanz.Controllers
         }
 
         // Booking Successful Page
-        public IActionResult Success(string name)
+       public IActionResult Success(int id)
 {
-    // Ensure the name is passed correctly
-    ViewBag.Name = name ?? "Customer";
-    return View();
+    // Fetch booking details from DB by ID
+    var booking = _context.Bookings.FirstOrDefault(b => b.Id == id);
+
+    if (booking == null)
+    {
+        return NotFound(); // if invalid ID
+    }
+
+    // Pass booking data to the view
+    return View(booking);
 }
     }
 }

@@ -13,5 +13,6 @@ namespace CarCleanz.Models
         public string? VehicleType { get; set; }
         public string? ServicePackage { get; set; }
         public string? BookingDate { get; set; }
+public int Price { get; set; }
     }
 }

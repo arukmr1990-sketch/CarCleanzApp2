@@ -1,10 +1,25 @@
+@model CarCleanz.Models.Booking
+
 @{
-    ViewBag.Title = "Booking Success";
+    ViewBag.Title = "Booking Successful";
 }
 
-<section class="success-section">
-    <h2>? Booking Successful!</h2>
-    <p>Thank you, <strong>@Html.Encode(ViewBag.Name)</strong>, for booking with <strong>Car Cleanz</strong>.</p>
+<section class="success-page" style="text-align:center; padding:40px 20px; color:white; min-height:80vh;">
+    <h2 style="color:#ff2d2d;">? Booking Successful!</h2>
+    <p>Thank you, <strong>@Model.Name</strong>! Your booking has been confirmed.</p>
 
-    <a href="/" class="btn-home">Go to Home</a>
+    <div style="margin:30px auto; max-width:500px; background:#111; padding:20px; border-radius:10px; text-align:left; box-shadow:0 0 10px rgba(255,255,255,0.1);">
+        <h3 style="color:#ff2d2d;">Booking Details</h3>
+        <hr style="border-color:#333;" />
+
+        <p><strong>Booking ID:</strong> @Model.Id</p>
+        <p><strong>Name:</strong> @Model.Name</p>
+        <p><strong>Email:</strong> @Model.Email</p>
+        <p><strong>Phone:</strong> @Model.Phone</p>
+        <p><strong>Vehicle Type:</strong> @Model.VehicleType</p>
+        <p><strong>Service Package:</strong> @Model.ServicePackage</p>
+        <p><strong>Booking Date:</strong> @Model.BookingDate</p>
+    </div>
+
+    <a href="/" class="btn btn-danger" style="background:#ff2d2d; color:#fff; padding:10px 20px; border-radius:6px; text-decoration:none;">Go to Home</a>
 </section>
