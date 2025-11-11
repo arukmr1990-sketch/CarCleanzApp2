@@ -9,8 +9,6 @@ namespace CarCleanz.Controllers
     {
         public IActionResult Index() => View();
     }
-public IActionResult Contact()
-{
-    return View();
-}
+
+
 }
