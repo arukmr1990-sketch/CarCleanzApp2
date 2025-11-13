@@ -1,6 +1,5 @@
-<form asp-action="Create" asp-controller="Booking" method="post" style="max-width:500px; margin:auto; text-align:left;">
-    @Html.AntiForgeryToken()
-
+<form asp-action="Create" asp-controller="Booking" method="post" asp-antiforgery="true"
+      style="max-width:500px; margin:auto; text-align:left;">
     <label>Name</label>
     <input asp-for="Name" class="form-control" required />
 
