@@ -5,7 +5,7 @@ namespace CarCleanz.Models
 {
     public class Booking
     {
-[Key]
+
 public int Id { get; set; }
         public string CustomBookingId { get; set; }
 
