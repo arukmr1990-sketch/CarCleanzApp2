@@ -12,7 +12,8 @@ builder.Services.AddDataProtection()
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 
 // ? SQLite database in /tmp
-var connectionString = "Data Source=Data/CarCleanz_v2.db";
+var connectionString = "Data Source=Data/CarCleanz_v3.db";
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
 
