@@ -35,9 +35,11 @@
         <input asp-for="CarNumber" class="form-control" placeholder="TN-22-AB-1234" required />
 
         <div class="form-group">
-            <label asp-for="BookingDate"></label>
-            <input asp-for="BookingDate" type="date" class="form-control"
-                   value='@DateTime.Now.ToString("yyyy-MM-dd")' required />
+            <input asp-for="BookingDate"
+       type="date"
+       class="form-control"
+       required />
+
             <span asp-validation-for="BookingDate" class="text-danger"></span>
         </div>
 
