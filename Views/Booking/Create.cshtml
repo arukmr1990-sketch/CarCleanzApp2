@@ -1,5 +1,6 @@
 @model CarCleanz.Models.Booking
 
-<h1>TEST PAGE</h1>
-
-<form asp-action="Create" asp-controller="Booking" method="post"></form>
+<form asp-action="Create" asp-controller="Booking" method="post">
+    <label>Name</label>
+    <input asp-for="Name" class="form-control" required />
+</form>
