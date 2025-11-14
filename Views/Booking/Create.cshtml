@@ -3,7 +3,7 @@
 <section class="booking-form" style="text-align:center; color:white; padding:40px;">
     <h2 style="color:#ff2d2d;">Book Your Car Cleaning</h2>
 
-    <form asp-action="Create" asp-controller="Booking" method="post" 
+    <form asp-action="Create" asp-controller="Booking" method="post"
           style="max-width:500px; margin:auto; text-align:left;">
 
         <label>Name</label>
@@ -32,22 +32,4 @@
         </select>
 
         <label>Car Number</label>
-        <input asp-for="CarNumber" class="form-control" placeholder="TN-22-AB-1234" required />
-
-        <div class="form-group">
-            <label asp-for="BookingDate"></label>
-            <input asp-for="BookingDate" type="date" class="form-control"
-       value="@DateTime.Now.ToString("yyyy-MM-dd")" required />
-
-            <span asp-validation-for="BookingDate" class="text-danger"></span>
-        </div>
-
-        <button type="submit" class="btn btn-danger" style="width:100%; margin-top:20px;">
-            Proceed to Payment
-        </button>
-    </form>
- @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
-
-</section>
+        <input asp-for="CarNumber" class="form-
