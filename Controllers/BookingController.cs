@@ -25,9 +25,16 @@ namespace CarCleanz.Controllers
         [HttpPost]
         public IActionResult Create(Booking booking)
         {
+return Content("POST HIT");
+
             if (!ModelState.IsValid)
             {
-                return View(booking);
+                var errors = ModelState.Values
+        .SelectMany(v => v.Errors)
+        .Select(e => e.ErrorMessage)
+        .ToList();
+
+    return Content("MODEL ERROR ? " + string.Join(" | ", errors));
             }
 
             // -------------------------------
