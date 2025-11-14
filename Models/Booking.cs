@@ -29,7 +29,7 @@ public int Id { get; set; }
 
         public int Price { get; set; }
 
-        [Required(ErrorMessage = "Please select a booking date.")]
+        
 [DataType(DataType.Date)]
 public DateTime? BookingDate { get; set; }
 
